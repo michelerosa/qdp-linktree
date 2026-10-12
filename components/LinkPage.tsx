@@ -1,6 +1,7 @@
 import type { PageModel } from '@/lib/view-model';
 import { CountrySelect } from './CountrySelect';
 import { SocialIcons } from './SocialIcons';
+import logo from '@/assets/logo.svg';
 
 const SNOWFLAKE = (
   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -13,7 +14,7 @@ export function LinkPage({ model }: { model: PageModel }) {
     <main lang={model.lang} className="page">
       <header className="brand">
         <h1>
-          <img src="/logo.svg" alt="Quelli della Pizza" width={144} height={144} />
+          <img src={logo.src} alt="Quelli della Pizza" width={144} height={144} />
         </h1>
       </header>
 

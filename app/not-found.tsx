@@ -1,9 +1,11 @@
+import logo from '@/assets/logo.svg';
+
 export default function NotFound() {
   return (
     <main lang="it" className="page">
       <header className="brand">
         <h1>
-          <img src="/logo.svg" alt="Quelli della Pizza" width={144} height={144} />
+          <img src={logo.src} alt="Quelli della Pizza" width={144} height={144} />
         </h1>
       </header>
       <p>Pagina non trovata</p>

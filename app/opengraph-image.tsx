@@ -7,7 +7,7 @@ export const contentType = 'image/png';
 export const alt = 'Quelli della Pizza';
 
 export default async function OgImage() {
-  const logo = await readFile(join(process.cwd(), 'public/logo.svg'));
+  const logo = await readFile(join(process.cwd(), 'assets/logo.svg'));
   const dataUrl = `data:image/svg+xml;base64,${logo.toString('base64')}`;
   return new ImageResponse(
     (
