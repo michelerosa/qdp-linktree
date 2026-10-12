@@ -1806,6 +1806,6 @@ Poi aprire `https://qdp.link` dal telefono, anche dal browser in-app di Instagra
 
 Dopo un commit di sola documentazione, `GET /applications/{id}/deployments` su Sevalla deve mostrare l'ultimo deploy con `status: skipped`.
 
-- [ ] **Step 8: Uptime check (Michele)**
+- [x] **Step 8: Uptime check (Michele)** (12/10: monitor Better Stack, account di Quelli della Pizza, su `https://qdp.link/health` ogni 3 minuti, notifica via e-mail)
 
 Puntare il monitor di uptime che già usate su `https://qdp.link/health` (si allarma su 503).
