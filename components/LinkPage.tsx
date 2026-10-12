@@ -12,8 +12,9 @@ export function LinkPage({ model }: { model: PageModel }) {
   return (
     <main lang={model.lang} className="page">
       <header className="brand">
-        <img src="/logo.svg" alt="" width={72} height={72} />
-        <h1>Quelli della Pizza</h1>
+        <h1>
+          <img src="/logo.svg" alt="Quelli della Pizza" width={96} height={96} />
+        </h1>
       </header>
 
       <ul className="pills">
