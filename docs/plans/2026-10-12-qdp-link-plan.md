@@ -1176,6 +1176,19 @@ main().catch((err) => {
 });
 ```
 
+- [ ] **Step 4b: `instrumentation.ts` (root): legge i dati all'avvio, così la prima richiesta dopo un deploy non usa lo snapshot**
+
+```ts
+export async function register() {
+  if (process.env.NEXT_RUNTIME === 'nodejs') {
+    const { store } = await import('./lib/data');
+    // Il refresh all'avvio riduce la finestra in cui si serve lo snapshot. Fire-and-forget di proposito:
+    // non va atteso, così uno shop giù non ritarda l'avvio dell'app.
+    void store.refresh();
+  }
+}
+```
+
 - [ ] **Step 5: Verifica che compili**
 
 Run: `npx tsc --noEmit && npm test`
@@ -1277,13 +1290,6 @@ function pillTitle(l: ResolvedLink, t: Messages): string {
   return t.titles[l.titleKey!];
 }
 
-function pillTag(kind: LinkKind, t: Messages): string {
-  if (kind === 'fresh') return t.tags.fresh;
-  if (kind === 'home') return t.tags.home;
-  if (kind === 'frozen') return t.tags.frozen;
-  return t.tags.catalogue;
-}
-
 export function buildPageModel(input: { country: string; lang: Lang; data: CountryData; src: string }): PageModel {
   const { country, lang, data, src } = input;
   const t = MESSAGES[lang];
@@ -1295,7 +1301,7 @@ export function buildPageModel(input: { country: string; lang: Lang; data: Count
     kind: l.kind,
     href: withUtm(l.url, { src, country }),
     title: pillTitle(l, t),
-    tag: pillTag(l.kind, t),
+    tag: t.tags[l.kind],
   }));
 
   const served = new Set<string>([...Object.values(data).flat(), ...SHOWCASES.flatMap((s) => s.countries)]);

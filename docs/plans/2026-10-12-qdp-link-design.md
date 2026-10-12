@@ -14,7 +14,7 @@ leggono in automatico da WooCommerce, senza elenchi mantenuti a mano.
 | Tema | Decisione |
 |---|---|
 | Hosting | App Next.js su Sevalla, dominio `qdp.link` (`www` reindirizza all'apex) |
-| Dati delle nazioni | Lettura in sola lettura della «Località di vendita» di WooCommerce di ogni shop |
+| Dati delle nazioni | Lettura in sola lettura delle «Nazioni visibili a tutti» (plugin wacpu) di ogni shop, o della «Località di vendita» dove il plugin manca |
 | Contenuti | Config e traduzioni nel repo, nessun pannello admin |
 | Lingua | Segue la nazione (it, fr, de, es, en) |
 | Social | Uguali per tutti |
@@ -58,8 +58,15 @@ US → pizzafellas.com · BR → .com.
 
 ### Lettura da WooCommerce
 
-- Endpoint `GET /wp-json/wc/v3/settings/general` con chiavi REST **in sola
-  lettura** dedicate a ogni shop. La logica è la stessa di qdp-hub
+- Chiavi REST **in sola lettura** dedicate a ogni shop.
+- **Prima fonte:** `GET /wp-json/wc/v3/settings/wacpu`, cioè le «Nazioni visibili
+  a tutti» del plugin `woocommerce-additional-countries-per-user` (dalla v1.2,
+  che espone l'opzione come gruppo di impostazioni WooCommerce). Dove il plugin è
+  attivo sostituisce la «Località di vendita», che include anche le nazioni dei
+  clienti esteri gestiti per ragioni logistiche sul sito italiano: queste non
+  devono comparire nella pagina.
+- **Ripiego (404, plugin assente, oggi solo CASA):** `GET
+  /wp-json/wc/v3/settings/general`, con la logica di qdp-hub
   (`app/api/clienti/allowed-countries/route.ts`).
 - `woocommerce_allowed_countries` ha tre valori:
   - `specific`: si usa `woocommerce_specific_allowed_countries`;
