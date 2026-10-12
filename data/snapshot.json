@@ -1,0 +1,51 @@
+{
+  "it": [
+    "IT"
+  ],
+  "fr": [
+    "FR"
+  ],
+  "de": [
+    "AT",
+    "DE"
+  ],
+  "es": [
+    "ES"
+  ],
+  "eu": [
+    "BE",
+    "DK",
+    "IE",
+    "LU",
+    "NL",
+    "PL",
+    "PT",
+    "CZ",
+    "SK",
+    "SI",
+    "CH",
+    "HU"
+  ],
+  "casa": [
+    "IT"
+  ],
+  "frozen": [
+    "AT",
+    "BE",
+    "CZ",
+    "DK",
+    "FR",
+    "DE",
+    "HU",
+    "IE",
+    "IT",
+    "LU",
+    "NL",
+    "PL",
+    "PT",
+    "SK",
+    "SI",
+    "ES",
+    "CH"
+  ]
+}
