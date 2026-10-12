@@ -3,7 +3,7 @@ export default function NotFound() {
     <main lang="it" className="page">
       <header className="brand">
         <h1>
-          <img src="/logo.svg" alt="Quelli della Pizza" width={96} height={96} />
+          <img src="/logo.svg" alt="Quelli della Pizza" width={144} height={144} />
         </h1>
       </header>
       <p>Pagina non trovata</p>
