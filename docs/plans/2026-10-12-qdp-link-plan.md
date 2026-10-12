@@ -1788,11 +1788,11 @@ Run: `rm -r app/debug`
 
 Inserire le 14 variabili `WC_*_KEY` / `WC_*_SECRET` (stringhe di una riga, niente base64).
 
-- [ ] **Step 5: Dominio (Michele)**
+- [x] **Step 5: Dominio (Michele)** (12/10: `qdp.link` primary su Sevalla; `www` aggiunto con CNAME su `to.sevalla.app`. Sevalla non fa redirect tra domini, quindi il 308 da www all'apex lo fa l'app in `next.config.ts`)
 
 Registrare `qdp.link`. Aggiungerlo come dominio custom dell'app su Sevalla, con i record DNS indicati da Sevalla, e far reindirizzare `www.qdp.link` all'apex.
 
-- [ ] **Step 6: Verifica in produzione**
+- [x] **Step 6: Verifica in produzione** (12/10: `/health` ok, `/fr` con UTM, www → 308; Michele ha provato Safari su iPhone e il browser in-app di Instagram, selettore compreso)
 
 ```bash
 curl -s https://qdp.link/health
@@ -1802,7 +1802,7 @@ curl -s -o /dev/null -w '%{http_code} %{redirect_url}\n' https://www.qdp.link
 Expected: `"ok":true`; link .fr con UTM; `301`/`308` verso `https://qdp.link/`.
 Poi aprire `https://qdp.link` dal telefono, anche dal browser in-app di Instagram, e provare il selettore del paese.
 
-- [ ] **Step 7: Verifica dei deploy paths ignorati**
+- [x] **Step 7: Verifica dei deploy paths ignorati** (12/10: `d0742cb` di sola documentazione → `skipped`)
 
 Dopo un commit di sola documentazione, `GET /applications/{id}/deployments` su Sevalla deve mostrare l'ultimo deploy con `status: skipped`.
 
