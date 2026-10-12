@@ -1773,18 +1773,18 @@ Expected: tutti i test PASS, build OK.
 
 ### Task 15: Snapshot, pulizia e messa in produzione
 
-- [ ] **Step 1: Genera lo snapshot reale**
+- [x] **Step 1: Genera lo snapshot reale** (12/10: nazioni dalle «Nazioni visibili a tutti» del plugin wacpu v1.2, distribuito su IT, FR, DE, ES, EU e FROZEN; CASA ripiega sulla Località di vendita)
 
 Run: `npm run snapshot`
 Expected: una riga `<shop>: N nazioni` per ognuno dei 7 shop; `data/snapshot.json` aggiornato.
 
-- [ ] **Step 2: Rimuovi la route di diagnostica**
+- [x] **Step 2: Rimuovi la route di diagnostica**
 
 Run: `rm -r app/debug`
 
-- [ ] **Step 3: Checkpoint commit**: `chore: real snapshot, remove debug route`. Chiedi a Michele commit e push.
+- [x] **Step 3: Checkpoint commit** (fatto in `e0e4ca6` e `5a534c4`): `chore: real snapshot, remove debug route`. Chiedi a Michele commit e push.
 
-- [ ] **Step 4: Env su Sevalla (Michele)**
+- [x] **Step 4: Env su Sevalla (Michele)** (12/10: `/health` ok su tutti e 7 gli shop)
 
 Inserire le 14 variabili `WC_*_KEY` / `WC_*_SECRET` (stringhe di una riga, niente base64).
 
