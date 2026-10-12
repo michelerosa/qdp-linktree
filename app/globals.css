@@ -1,2 +1,28 @@
 *, *::before, *::after { box-sizing: border-box; }
-body { margin: 0; background: #FAFAF8; color: #1d1d1b; }
+html, body { margin: 0; }
+body { background: #FAFAF8; color: #1d1d1b; font-family: var(--font-archivo), system-ui, sans-serif; }
+a { color: inherit; text-decoration: none; }
+
+.page { min-height: 100dvh; max-width: 440px; margin: 0 auto; padding: 80px 24px 32px; display: flex; flex-direction: column; align-items: center; gap: 36px; }
+.brand { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.brand h1 { margin: 0; font-size: 18px; font-weight: 700; }
+
+.pills { list-style: none; margin: 0; padding: 0; width: 100%; display: flex; flex-direction: column; gap: 12px; }
+.pill { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 58px; padding: 0 20px; border: 1.5px solid #1d1d1b; border-radius: 999px; background: #fff; transition: background .15s; }
+.pill:hover, .pill:focus-visible { background: #F1F1EE; }
+.pill:focus-visible { outline: 2px solid #1d1d1b; outline-offset: 3px; }
+.pill-title { font-size: 16px; font-weight: 600; }
+
+.tag { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.tag-fresh { background: #FFD000; color: #1d1d1b; }
+.tag-frozen { background: #DCEFFA; color: #0B2E44; }
+.tag-home, .tag-showcase, .tag-fallback { background: #EDEDEA; color: #1d1d1b; }
+
+.socials { display: flex; gap: 8px; }
+.social { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 999px; }
+.social:hover, .social:focus-visible { background: #EDEDEA; }
+.social:focus-visible { outline: 2px solid #1d1d1b; outline-offset: 2px; }
+
+.country { position: relative; margin-top: auto; min-height: 44px; padding: 0 12px; display: flex; align-items: center; font-size: 13px; color: #5E5E58; }
+.country select { position: absolute; inset: 0; width: 100%; opacity: 0; cursor: pointer; font-size: 16px; }
+.country:focus-within { outline: 2px solid #1d1d1b; border-radius: 8px; }
